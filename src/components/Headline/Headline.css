@@ -1,0 +1,21 @@
+.headline-exam-prep,
+.headline-online-tutoring,
+.headline-tutoring,
+.headline-tutoring-subheadline {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 40px;
+}
+
+.headline-online-tutoring,
+.headline-tutoring {
+  font-weight: 700;
+}
+
+.headline-tutoring {
+  font-size: 50px;
+}
+
+.headline-tutoring-subheadline {
+  padding-bottom: 3rem;
+}
+

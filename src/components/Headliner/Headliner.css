@@ -1,0 +1,19 @@
+.headliner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: url('/public/main-background.gif') no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.left-headliner {
+  width: 30rem;
+}
+
+
+.right-headliner img {
+  width: 25rem;
+  height: auto;
+  border-radius: 30%;
+}
