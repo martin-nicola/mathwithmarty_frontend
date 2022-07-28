@@ -7,20 +7,25 @@ import { Route, Routes } from 'react-router-dom';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Schedule from './components/Scheduler/Scheduler';
+import {
+  ProcessedEvent,
+  Scheduler,
+  SchedulerHelpers
+} from "@aldabil/react-scheduler";
 
 export default class App extends React.Component {
-  
+
   state = {
     user: null,
   }
 
   setUserInState = (incomingUserData) => {
-    this.setState({ user: incomingUserData})
+    this.setState({ user: incomingUserData })
   }
 
   handleLogOut = () => {
     localStorage.removeItem('token')
-    this.setState({user: null}) 
+    this.setState({ user: null })
   }
 
   grabUserData() {
@@ -32,7 +37,7 @@ export default class App extends React.Component {
         token = null;
       } else { // token not expired! our user is still 'logged in'. Put them into state.
         let userDoc = payload.user // grab user details from token
-        this.setState({user: userDoc})      
+        this.setState({ user: userDoc })
       }
     }
   }
@@ -41,24 +46,34 @@ export default class App extends React.Component {
     this.grabUserData();
   }
 
-  render() {
-    return (
-      <div className="App">
-        <MyNav user={this.state.user} handleLogOut={this.handleLogOut}/>
-        <Routes>
-          <Route path="/" element={
+render() {
+  return (
+    <div className="App">
+      <MyNav user={this.state.user} handleLogOut={this.handleLogOut} />
+      <Routes>
+        <Route path="/" element={
           <div className="main-container">
             <Headliner />
-            <Tutoring/>
+            <Tutoring />
           </div>
-          }/>
-          <Route path="/schedule" element={
-              <Schedule />
-          }/>
-          <Route path="/signup" element={<Signup setUserInState={this.setUserInState}/>} />
-          <Route path="/login" element={<Login setUserInState={this.setUserInState}/>} />
-        </Routes>
-      </div>
-    );
-  }
+        } />
+        <Route path="/schedule" element={
+          <Schedule
+            customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
+            viewerExtraComponent={(fields, event) => {
+              return (
+                <div>
+                  <p>Useful to render custom fields...</p>
+                  <p>Description: {event.description || "Nothing..."}</p>
+                </div>
+              );
+            }}
+          />
+        } />
+        <Route path="/signup" element={<Signup setUserInState={this.setUserInState} />} />
+        <Route path="/login" element={<Login setUserInState={this.setUserInState} />} />
+      </Routes>
+    </div>
+  );
+}
 }
