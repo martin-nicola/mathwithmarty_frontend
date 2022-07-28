@@ -1,5 +1,6 @@
-import React from 'react'
+import { Fragment } from "react";
 import { Scheduler } from "@aldabil/react-scheduler";
+import { RESOURCES } from "./data";
 
 export default function Schedule() {
 
@@ -11,8 +12,8 @@ export default function Schedule() {
     if (action === "edit") {
       /** PUT event to remote DB */
     } else if (action === "create") {
-      console.log(event)
       /**POST event to remote DB */
+      console.log(event, action);
     }
     /**
      * Make sure to return 4 mandatory fields:
@@ -33,16 +34,25 @@ export default function Schedule() {
     });
   };
 
-  return (
-    <div className="scheduler">
-      <Scheduler
+  const handleDelete = async (deletedId) => {
+    // Simulate http request: return the deleted id
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        res(deletedId);
+      }, 3000);
+    });
+  };
 
+  return (
+    <Fragment>
+      <Scheduler
         view="week"
-        
         day={null}
-        
         month={null}
-    
+        remoteEvents={sendCall("hello")}
+        onConfirm={handleConfirm}
+        onDelete={handleDelete}
+        events={[]}
         week={{
           weekDays: [0, 1, 2, 3, 4, 6],
           weekStartOn: 0,
@@ -50,32 +60,25 @@ export default function Schedule() {
           endHour: 22,
           step: 60,
         }}
-
-        events={[
-         
-        ]}
-      
-        remoteEvents={sendCall("hello")}
+        resources={RESOURCES}
+        resourceFields={{
+          idField: "admin_id",
+          textField: "title",
+          subTextField: "mobile",
+          avatarField: "title",
+          colorField: "color"
+        }}
+        resourceViewMode={"tabs"}
         fields={[
-          {
-            name: "title",
-            type: ""
-          },
           {
             name: "start",
             type: "input",
-            config: {
-              disabled: true,
-              label: "Start" 
-            }
+            config: { label: "Start", required: true, disabled: true}
           },
           {
             name: "end",
             type: "input",
-            config: {
-              disabled: true,
-              label: "End"
-            }
+            config: { label: "End", required: true, disabled: true}
           },
           {
             name: "end",
@@ -97,18 +100,17 @@ export default function Schedule() {
             config: { label: "Course", required: true, errMsg: "Please select a course" }
           },
           {
-            name: "tutor_id",
-            type: "select",
-            // Should provide options with type:"select"
-            options: [
-              { id: 1, text: "Marty", value: 1 },
-              { id: 2, text: "Lexi", value: 2 }
-            ],
-            config: { label: "Tutor", required: true, errMsg: "Please select a tutor" }
-          }
+            name: "title",
+            type: "hidden"
+          },
+          {
+            name: "description",
+            type: "input",
+            default: "Tutoring Session",
+            config: { label: "Description", multiline: true, rows: 2, disabled: true }
+          },
         ]}
-        onConfirm={handleConfirm}
       />
-    </div>
-  )
+    </Fragment>
+  );
 }
