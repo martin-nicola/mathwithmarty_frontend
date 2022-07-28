@@ -81,6 +81,13 @@ export default function Schedule() {
             config: { label: "End", required: true, disabled: true}
           },
           {
+            name: "end",
+            type: "input",
+            config: {
+              disabled: true,
+            }
+          },
+          {
             name: "course",
             type: "select",
             // Should provide options with type:"select"

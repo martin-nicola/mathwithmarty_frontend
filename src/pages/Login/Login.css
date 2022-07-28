@@ -1,0 +1,21 @@
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+    margin-top: 2rem;
+}
+
+#formWrapper {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.studentImg{
+    display: flex;
+    align-items: center;
+    margin-right: 10rem;
+}
