@@ -63,12 +63,18 @@ export default function Schedule() {
           },
           {
             name: "start",
-            type: "date",
+            type: "input",
             config: {
-              label: "Start Date",
-              md: 6,
-              modalVariant: "dialog",
-              type: "datetime"
+              disabled: true,
+              label: "Start" 
+            }
+          },
+          {
+            name: "end",
+            type: "input",
+            config: {
+              disabled: true,
+              label: "End"
             }
           },
           {

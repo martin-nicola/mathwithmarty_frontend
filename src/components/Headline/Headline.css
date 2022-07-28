@@ -7,7 +7,8 @@
 }
 
 .headline-online-tutoring,
-.headline-tutoring {
+.headline-tutoring,
+.headline-order {
   font-weight: 700;
 }
 
@@ -18,4 +19,3 @@
 .headline-tutoring-subheadline {
   padding-bottom: 3rem;
 }
-
