@@ -12,7 +12,7 @@ export default function Headliner() {
         <Feature/>
       </div>
       <div className="right-headliner">
-        <img src="https://avatars.githubusercontent.com/u/39384193?v=4" alt=""/>
+        <img src="martinnicola.png" alt=""/>
       </div>
     </div>
   )
