@@ -7,11 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Schedule from './components/Scheduler/Scheduler';
-import {
-  ProcessedEvent,
-  Scheduler,
-  SchedulerHelpers
-} from "@aldabil/react-scheduler";
+import Payment from './components/Payment/Payment';
 
 export default class App extends React.Component {
 
@@ -56,24 +52,17 @@ render() {
             <Headliner />
             <Tutoring />
           </div>
-        } />
-        <Route path="/schedule" element={
-          <Schedule
-            customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
-            viewerExtraComponent={(fields, event) => {
-              return (
-                <div>
-                  <p>Useful to render custom fields...</p>
-                  <p>Description: {event.description || "Nothing..."}</p>
-                </div>
-              );
-            }}
-          />
-        } />
-        <Route path="/signup" element={<Signup setUserInState={this.setUserInState} />} />
-        <Route path="/login" element={<Login setUserInState={this.setUserInState} />} />
-      </Routes>
-    </div>
-  );
-}
+          }/>
+          <Route path="/schedule" element={
+            <Schedule />
+          }/>
+          <Route path="/payment" element={
+            <Payment />
+          }/>
+          <Route path="/signup" element={<Signup setUserInState={this.setUserInState}/>} />
+          <Route path="/login" element={<Login setUserInState={this.setUserInState}/>} />
+        </Routes>
+      </div>
+    );
+  }
 }

@@ -66,9 +66,15 @@ export default function Schedule() {
             type: "input",
             config: {
               disabled: true,
-              modalVariant: "dialog",
-
-              type: "datetime"
+              label: "Start" 
+            }
+          },
+          {
+            name: "end",
+            type: "input",
+            config: {
+              disabled: true,
+              label: "End"
             }
           },
           {
