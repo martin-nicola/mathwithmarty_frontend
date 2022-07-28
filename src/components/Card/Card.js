@@ -15,7 +15,7 @@ export default function MyCard(props) {
           <Card.Text style={{textAlign: 'left' }}>
             - {props.point2}
           </Card.Text>
-          <Button variant="info">Book Free Consultation</Button>
+          <Button variant="info">{props.btnInfo}</Button>
         </Card.Body>
       </Card>
     </div>

@@ -16,7 +16,7 @@ export default function MyNav(props) {
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Tutoring</Nav.Link>
-            <Nav.Link href="/">Courses</Nav.Link>
+            {/* <Nav.Link href="/">Courses</Nav.Link> */}
             <Nav.Link href="/">About</Nav.Link>
             {props.user ? 
             <>        

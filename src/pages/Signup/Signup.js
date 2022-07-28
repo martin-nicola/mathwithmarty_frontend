@@ -21,10 +21,11 @@ export default function Signup(props) {
     navigate("/")
   }
 
-    return (
-      <div className="signup">
-        <Container>
-          <h1>Sign Up</h1>
+  return (
+    <div className="signup">
+      <Container>
+        <div id='formWrapper'>
+        <img src="signup.png"></img>
           <Form.Group>
             <Form.Label>First Name</Form.Label>
             <Form.Control
@@ -55,10 +56,11 @@ export default function Signup(props) {
             ></Form.Control>
           </Form.Group>
           <Button varient="primary" onClick={signupHandler} className="submit-btn">Register</Button>
-        </Container>
-        <div className="classroom">
-          <img src="https://i.imgur.com/jXUgXNq.png" alt=""/>
         </div>
+      </Container>
+      <div className="studentImg">
+        <img src="tutor.png" alt="" />
       </div>
-    );
+    </div>
+  );
 }

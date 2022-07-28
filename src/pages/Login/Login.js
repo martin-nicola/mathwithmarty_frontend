@@ -29,7 +29,8 @@ export default function Login(props) {
   return (
     <div className="login">
       <Container>
-        <h1>Login</h1>
+      <div id='formWrapper'>
+        <img src="login.png"></img>
         <Form.Group>
           <Form.Label>Email Address</Form.Label>
           <Form.Control
@@ -49,7 +50,11 @@ export default function Login(props) {
           Login
         </Button>
         <h4>{props.message}</h4>
+        </div>
       </Container>
+      <div className="studentImg">
+        <img src="tutor2.png" alt="" />
+      </div>
     </div>
   );
 }
